@@ -15,8 +15,16 @@ class Login extends Component {
         this.setState(() => ({authedUser}))
     }
 
+    updateState(selectedUser) {
+        this.setState({
+            authedUser: selectedUser.value
+        })
+    }
+
     render () {
+        
         const {authedUser} = this.state
+        console.log("authedUser is ", authedUser)
         const {loginDone} = this.state
         if(loginDone){
             console.log("There is a user. We need to switch to user view")
@@ -25,24 +33,27 @@ class Login extends Component {
                 <h3> We have a USER, redirect to home page </h3>
             ) 
         }
-        // const scaryAnimals = [
-        //     { label: "Alligators", value: 1 },
-        //     { label: "Crocodiles", value: 2 },
-        //     { label: "Sharks", value: 3 },
-        //     { label: "Small crocodiles", value: 4 },
-        //     { label: "Smallest crocodiles", value: 5 },
-        //     { label: "Snakes", value: 6 },
-        // ];
+        const options = [
+            { label: "Alligators", value: 100 },
+            { label: "Crocodiles", value: 2 },
+            { label: "Sharks", value: 3 },
+            { label: "Small crocodiles", value: 4 },
+            { label: "Smallest crocodiles", value: 5 },
+            { label: "Snakes", value: 6 },
+        ];
 
-        console.log(this.state.users) 
+        console.log(this.props)
+        console.log(this.props.users)
 
-        const options = this.props.users.map((user) => (<option key={user.id} value={user.id}>{user.name}</option>))
+        //console.log(this.state.users) 
+
+        // const options = this.props.users.map((user) => (<option key={user.id} value={user.id}>{user.name}</option>))
 
 
         return (
             <div className="loginForm">
                 <div className="menu">
-                <Select value={this.state.authedUser} options={options} onChange={this.onChange} />
+                <Select name="foem-field-name" value={this.state.authedUser} options={options} onChange={this.onChange} />
                 </div>
             </div>
 
