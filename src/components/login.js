@@ -45,18 +45,30 @@ class Login extends Component {
         console.log(this.props)
         console.log(this.props.users)
 
+        let us1 = Object.values(this.props.users).map(function(user) {
+            return {
+                id: user.id,
+                name: user.name
+            }
+        })
+        console.log("us is ", us1)
         //console.log(this.state.users) 
+
+        let yy = us1.map((user) => ({label: user.name, value: user.id}))
 
         // const options = this.props.users.map((user) => (<option key={user.id} value={user.id}>{user.name}</option>))
 
 
         return (
-            <div className="loginForm">
-                <div className="menu">
-                <Select name="foem-field-name" value={this.state.authedUser} options={options} onChange={this.onChange} />
+            <div>
+                <h3> Welcome, Please log in if  </h3>
+            
+                <div className="loginForm">
+                    <div className="menu">
+                    <Select name="foem-field-name" value={this.state.authedUser} options={yy} onChange={this.onChange} />
+                    </div>
                 </div>
             </div>
-
         )
     }
 
