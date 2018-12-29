@@ -15,8 +15,7 @@ class App extends Component {
     return (
       <div>
         Starter Code Check console
-        <Login/>
-
+        {this.props.wait === true ? null : <Login/>}
       </div>
     );
   }
@@ -26,12 +25,11 @@ class App extends Component {
 function mapStateToProps(users, questions) {
   var wait = false
   console.log(users)
-  if ((Object.keys(users).length === 0 && users.constructor === Object) || (Object.keys(questions).length === 0 && questions.constructor === Object)){
+  if ((Object.keys(users).length === 0 && users.constructor === Object)){
     wait = true
   }
   return {
     wait: wait
-
   }
   
 }
