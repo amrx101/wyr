@@ -1,5 +1,5 @@
-import { getInitialData } from '../_DATA'
-import { receiveUsers } from '../actions/user'
+import { getInitialData } from '../api/_DATA'
+import { receiveUsers } from '../actions/users'
 import { receiveQuestions } from '../actions/questions'
 
 export function handleInitialData() {
