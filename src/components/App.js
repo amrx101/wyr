@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log("wait is ", this.props.wait)
     return (
       <div>
         Starter Code Check console
@@ -22,14 +22,23 @@ class App extends Component {
   
 }
 
+function isEmpty(obj) {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
 function mapStateToProps(users, questions) {
   var wait = false
   console.log(users)
-  if ((Object.keys(users).length === 0 && users.constructor === Object)){
-    wait = true
-  }
+  
+  // if ((Object.keys(users).length === 0 && users.constructor === Object)){
+  //   wait = true
+  // }
   return {
-    wait: wait
+    wait: isEmpty(users) || isEmpty(questions)
   }
   
 }

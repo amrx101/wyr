@@ -22,22 +22,27 @@ class Login extends Component {
             console.log("There is a user. We need to switch to user view")
             console.log(this.state.authedUser)
             return (
-                <h3> We have a USER </h3>
+                <h3> We have a USER, redirect to home page </h3>
             ) 
         }
-        const scaryAnimals = [
-            { label: "Alligators", value: 1 },
-            { label: "Crocodiles", value: 2 },
-            { label: "Sharks", value: 3 },
-            { label: "Small crocodiles", value: 4 },
-            { label: "Smallest crocodiles", value: 5 },
-            { label: "Snakes", value: 6 },
-        ];
+        // const scaryAnimals = [
+        //     { label: "Alligators", value: 1 },
+        //     { label: "Crocodiles", value: 2 },
+        //     { label: "Sharks", value: 3 },
+        //     { label: "Small crocodiles", value: 4 },
+        //     { label: "Smallest crocodiles", value: 5 },
+        //     { label: "Snakes", value: 6 },
+        // ];
+
+        console.log(this.state.users) 
+
+        const options = this.props.users.map((user) => (<option key={user.id} value={user.id}>{user.name}</option>))
+
 
         return (
             <div className="loginForm">
                 <div className="menu">
-                <Select value={this.state.authedUser} options={scaryAnimals} onChange={this.onChange} />
+                <Select value={this.state.authedUser} options={options} onChange={this.onChange} />
                 </div>
             </div>
 

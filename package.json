@@ -6,6 +6,7 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^5.0.7",
+    "react-redux-loading-bar": "^4.1.0",
     "react-scripts": "2.1.2",
     "react-select": "^2.2.0",
     "redux": "^4.0.1",
