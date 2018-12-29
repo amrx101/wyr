@@ -11,19 +11,7 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
-
-  // render() {
-  //   console.log("wait is ", this.props.wait)
-  //   return (
-  //     <div>
-  //       Starter Code Check console
-  //       {this.props.wait === true ? null : <Login/>}
-  //     </div>
-  //   );
-  // }
   
-
-
   render() {
       return (
           <Router>

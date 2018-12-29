@@ -1,16 +1,16 @@
-export const AUTHED_USER = 'AUTHED_USER'
+export const AUTHENTICATE_USER = 'AUTHENTICATE_USER'
 export const SIGN_OUT = 'SIGNED_OUT'
 
-export function authedUser (user) {
+export function authenticateUser (id) {
     return {
-        type: AUTHED_USER,
-        user
+        type: AUTHENTICATE_USER,
+        id
     }
 }
 
-export function signOut (user) {
+export function signOut (id) {
     return {
         type: SIGN_OUT,
-        user
+        id
     }
 }
