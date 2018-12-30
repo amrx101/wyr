@@ -4,3 +4,9 @@
  /*background-image: url("https://www.planwallpaper.com/static/images/7864-download-full-hd-romantic-beach-water-nature-background.jpg");*/
  background-color: #cccccc;
 }
+
+.Modal .input_div {
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
