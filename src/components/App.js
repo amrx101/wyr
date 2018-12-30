@@ -7,6 +7,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './login'
 import SignUp from './signup/signup'
+import AddQuestion from './question/addQues'
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class App extends Component {
                       : <div>
                           <Route path="/login" component={Login}/>
                           <Route path="/signup" component={SignUp}/>
+                          <Route path="/add" component={AddQuestion}/>
                           
                       </div>}
               </Fragment>
