@@ -1,28 +1,65 @@
 import React, {Component} from 'react'
-import {Nav, NavItem, NavLink, TabContent, TabPane} from 'reactstrap'
+import {Nav, NavItem, TabContent, TabPane} from 'reactstrap'
 import {connect} from 'react-redux'
+import './dashboard.css';
+import {BrowserRouter,NavLink, Route} from 'react-router-dom';
 
-class Dashboard extends Component {
-    state = {
-        activeTab: '1'
-    }
+class Dashboard extends React.Component {
+	render() {
+		return (
+			<BrowserRouter>
+				<DashBoard />
+			</BrowserRouter>
+		);
+	}
+}
 
-    toggle(tab) {
-        if (this.state.activeTab !== tab) {
-            this.setState({
-                activeTab: tab
-            });
-        }
-    }
-
+class DashBoard extends React.Component {
     render() {
-        const {notAnsweredQIds, answeredQIds, user} = this.props
         return (
-            <h3> Will do stuff here </h3>
-
-        )
+            <div id="dashboard">
+                <div className="menu">
+                    <NavLink exact to="/">
+                        DashBoard
+                    </NavLink>
+                    <NavLink exact to="/marketing" >
+                        LeaderBoard
+                    </NavLink>
+                    <NavLink exact to="/automation">
+                        AddQuestion
+                    </NavLink>
+                </div>
+                <div className="content">
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/marketing" component={Marketing} />
+                    <Route exact path="/automation" component={Automation} />
+                </div>
+            </div>
+        );
     }
 }
+
+// This is what you really care about
+class Home extends React.Component {
+    render() {
+        return <h1>Hello there ! You're on the home page</h1>;
+    }
+}
+
+// This is what you could care about
+class Automation extends React.Component {
+    render() {
+        return <h1>This is the Automation Panel</h1>;
+    }
+}
+
+// This is what you really care about
+class Marketing extends React.Component {
+    render() {
+        return <h1>This is the Marketing Panel</h1>;
+    }
+}
+
 
 function mapStateToProps({questions, authedUser, users}) {
 
