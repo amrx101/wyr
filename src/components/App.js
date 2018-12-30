@@ -24,7 +24,7 @@ class App extends Component {
                   {this.props.wait === true
                       ? null
                       : <div>
-                          <Route path="/" component={DashBoard}/>
+                          <Route exact path ="/" component={DashBoard}/>
                           <Route path="/login" component={Login}/>
                           <Route path="/signup" component={SignUp}/>
                           <Route path="/add" component={AddQuestion}/>
