@@ -34,8 +34,12 @@ class AddQuestion extends React.Component {
   render() {
       const {option1, option2, redirect} = this.state
       const isEnabled = option1.length > 0 && option2.length > 0;
-      const {authedUser} = this.props
+      const {authedUser, noUser} = this.props
+      if (noUser === true){
+          return <Redirect to="/login"/>
+      }
       if (redirect === true){
+          // TODO: Redirect to dashboard
           console.log("There is a user. We need to switch to user view")
   
           return <Redirect to="/login"/>
@@ -53,9 +57,19 @@ class AddQuestion extends React.Component {
   }
 }
 
+function isEmpty(obj) {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
+
 function mapStateToProps({authedUser}){
     return{
-        authedUser: authedUser
+        authedUser: authedUser,
+        noUser : isEmpty(authedUser),
     }
 }
 
