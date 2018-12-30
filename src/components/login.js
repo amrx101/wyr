@@ -47,7 +47,7 @@ class Login extends Component {
         })
         let yy = us1.map((user) => ({id: user.id, name: user.name}))
         return (
-            <div>
+            <div className="login_page">
                 <h2> Please log in. </h2>
                 <div className="search_categories">
                     <div className="select">
