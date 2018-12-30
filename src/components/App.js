@@ -8,6 +8,7 @@ import './App.css';
 import Login from './login'
 import SignUp from './signup/signup'
 import AddQuestion from './question/addQues'
+import User from './user/user'
 
 class App extends Component {
   componentDidMount() {
@@ -25,6 +26,7 @@ class App extends Component {
                           <Route path="/login" component={Login}/>
                           <Route path="/signup" component={SignUp}/>
                           <Route path="/add" component={AddQuestion}/>
+                          <Route path="/user" component={User}/>
                           
                       </div>}
               </Fragment>

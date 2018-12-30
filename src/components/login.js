@@ -40,7 +40,7 @@ class Login extends Component {
             //     <h3> We have a USER, redirect to home page </h3>
                 
             // ) 
-            return <Redirect to="/add"/>
+            return <Redirect to="/user"/>
         }
         let us1 = Object.values(this.props.users).map(function(user) {
             return {
