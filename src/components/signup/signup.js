@@ -44,6 +44,8 @@ class SignUp extends React.Component {
 
   render() {
       const {newRegistration} = this.state
+      const {name, avatarURL, username} = this.state
+      const isEnabled = name.length > 0 && avatarURL.length > 0 && username.length > 0
       if (newRegistration === true){
           console.log("There is a user. We need to switch to user view")
           return (
@@ -54,10 +56,10 @@ class SignUp extends React.Component {
           <div className="Modal">
               <div className="input_div">
                 <form onSubmit={this.handleSubmit} className="ModalForm">
-                    <input type="text" value={this.state.name} onChange={this.handleChangeName} />
-                    <input type="text" value={this.state.username} onChange={this.handleChangeId} />
-                    <input type="text" value={this.state.avatarURL} onChange={this.handleChangeAvatar}/>
-                    <input type="submit" value="Submit" />
+                    <input type="text" value={this.state.name} onChange={this.handleChangeName} placeholder="Input Name" />
+                    <input type="text" value={this.state.username} onChange={this.handleChangeId} placeholder="Input ID" />
+                    <input type="text" value={this.state.avatarURL} onChange={this.handleChangeAvatar} placeholder="Input AvatarURL"/>
+                    <input type="submit" value="Submit"  disabled={!isEnabled}/>
                 </form>
               </div>
           </div>
