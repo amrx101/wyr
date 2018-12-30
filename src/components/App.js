@@ -10,6 +10,7 @@ import SignUp from './signup/signup'
 import AddQuestion from './question/addQues'
 import User from './user/user'
 import DashBoard from './home/dashBoard'
+import LeaderBoard from './home/leaderBoard'
 
 class App extends Component {
   componentDidMount() {
@@ -29,6 +30,7 @@ class App extends Component {
                           <Route path="/signup" component={SignUp}/>
                           <Route path="/add" component={AddQuestion}/>
                           <Route path="/user" component={User}/>
+                          <Route path="/leaderboard" component={LeaderBoard}/>
                           
                       </div>}
               </Fragment>

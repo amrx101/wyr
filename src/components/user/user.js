@@ -9,6 +9,7 @@ import "./user.css"
 class User extends Component{
 
     render(){
+        console.log("INSIDE USER", this.props.user)
         const {name, avatarURL, answers, questions} = this.props.user
         return(
             <div>
@@ -26,10 +27,11 @@ class User extends Component{
 
 }
 
-function mapStateToProps({users, authedUser}){
+function mapStateToProps({users}, {id}){
     // TODO: This will be an ID
+    console.log("id is ", id)
     return {
-        user: users[authedUser],
+        user: users[id],
     }
 }
 
