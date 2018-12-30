@@ -49,9 +49,7 @@ class SignUp extends React.Component {
       const isEnabled = name.length > 0 && avatarURL.length > 0 && username.length > 0
       if (newRegistration === true){
           console.log("There is a user. We need to switch to user view")
-          // return (
-          //   <h3> We have a USER, redirect to home page </h3>
-          // ) 
+  
           return <Redirect to="/login"/>
       }
       return (

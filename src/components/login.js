@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Select from 'react-select';
 import { authenticateUser}  from '../actions/authedUser'
 import './login.css'
+import {Link, Redirect} from 'react-router-dom'
 
 class Login extends Component {
     state = {
@@ -48,7 +49,7 @@ class Login extends Component {
         let yy = us1.map((user) => ({id: user.id, name: user.name}))
         return (
             <div className="login_page">
-                <h2> Please log in. </h2>
+                <h2> Existing User. Please LogIn. </h2>
                 <div className="search_categories">
                     <div className="select">
                         <select className="selectItem" onChange={this.onChange}>
@@ -59,6 +60,8 @@ class Login extends Component {
                 <div>
                     <button className="select_submit" type="button" disabled={!this.state.authedUser} onClick={this.handleClick}> Login</button>
                 </div>
+                <h2> New Users</h2>
+                <Link to="/signup">Sign Up</Link>
 
             </div>
         )
