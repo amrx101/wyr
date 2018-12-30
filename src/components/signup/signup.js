@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {handleAddUser} from '../../actions/users'
 
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {name: '', id: '', avatarURL: '', newRegistration: false};
+    this.state = {name: '', username: '', avatarURL: '', newRegistration: false};
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeId = this.handleChangeId.bind(this);
@@ -18,7 +19,7 @@ class SignUp extends React.Component {
   }
 
   handleChangeId(event) {
-      this.setState({id: event.target.value})
+      this.setState({username: event.target.value})
   }
 
   handleChangeAvatar(event) {
@@ -30,6 +31,14 @@ class SignUp extends React.Component {
     event.preventDefault();
     // TODO: Dispatch authedUser
     // Set this.state.newRegistration to True
+    const {dispatch} = this.props
+    const {username} = this.state
+    const {name} = this.state
+    const {avatarURL} = this.state
+    console.log("id is ", username)
+    console.log("name is ", name)
+    console.log("avatar is", avatarURL)
+    dispatch(handleAddUser(username, name, avatarURL))
     this.setState({newRegistration: true})
   }
 
@@ -46,7 +55,7 @@ class SignUp extends React.Component {
               <div className="input_div">
                 <form onSubmit={this.handleSubmit} className="ModalForm">
                     <input type="text" value={this.state.name} onChange={this.handleChangeName} />
-                    <input type="text" value={this.state.id} onChange={this.handleChangeId} />
+                    <input type="text" value={this.state.username} onChange={this.handleChangeId} />
                     <input type="text" value={this.state.avatarURL} onChange={this.handleChangeAvatar}/>
                     <input type="submit" value="Submit" />
                 </form>

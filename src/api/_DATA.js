@@ -149,6 +149,7 @@ function formatQuestion({optionOneText, optionTwoText, author}) {
 
 
 function formatUser({username, name, avatarURL}) {
+    console.log("INSIDE FORMAT USER", username, name, avatarURL)
     return {
         id: username,
         name,
@@ -214,6 +215,7 @@ function _saveQuestionAnswer({authedUser, qid, answer}) {
 
 function _saveNewUser(user) {
     return new Promise((res, rej) => {
+        console.log("USER HERE IS ", user)
         const formattedUser = formatUser(user)
 
         setTimeout(() => {
