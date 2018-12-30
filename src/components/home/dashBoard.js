@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import {Nav, NavItem, TabContent, TabPane} from 'reactstrap'
 import {connect} from 'react-redux'
 import './dashboard.css';
-import {BrowserRouter,NavLink, Route} from 'react-router-dom';
+import LeaderBoard from '../home/leaderBoard'
+import AddQuestion from '../question/addQues'
+import {BrowserRouter,NavLink, Route, Link, Redirect} from 'react-router-dom';
 
 class Dashboard extends React.Component {
 	render() {
@@ -22,17 +24,17 @@ class DashBoard extends React.Component {
                     <NavLink exact to="/">
                         DashBoard
                     </NavLink>
-                    <NavLink exact to="/marketing" >
+                    <NavLink exact to="/leaderboard" >
                         LeaderBoard
                     </NavLink>
-                    <NavLink exact to="/automation">
+                    <NavLink exact to="/add">
                         AddQuestion
                     </NavLink>
                 </div>
                 <div className="content">
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/marketing" component={Marketing} />
-                    <Route exact path="/automation" component={Automation} />
+                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/leaderboard" component={LeaderBoard}/>
+                    <Route exact path="/add" component={AddQuestion}/>
                 </div>
             </div>
         );
@@ -50,13 +52,6 @@ class Home extends React.Component {
 class Automation extends React.Component {
     render() {
         return <h1>This is the Automation Panel</h1>;
-    }
-}
-
-// This is what you really care about
-class Marketing extends React.Component {
-    render() {
-        return <h1>This is the Marketing Panel</h1>;
     }
 }
 
