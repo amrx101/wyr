@@ -9,10 +9,6 @@ import "./user.css"
 class User extends Component{
 
     render(){
-        // const answeredQuestions = user.answers.length
-        // const askedQuestions = user.questions.length
-        // const name = user.name
-        // const avatarURL = user.avatarURL
         const {name, avatarURL, answers, questions} = this.props.user
         return(
             <div>
@@ -31,6 +27,7 @@ class User extends Component{
 }
 
 function mapStateToProps({users, authedUser}){
+    // TODO: This will be an ID
     return {
         user: users[authedUser],
     }

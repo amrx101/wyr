@@ -9,6 +9,7 @@ import Login from './login'
 import SignUp from './signup/signup'
 import AddQuestion from './question/addQues'
 import User from './user/user'
+import DashBoard from './home/dashBoard'
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class App extends Component {
                   {this.props.wait === true
                       ? null
                       : <div>
+                          <Route path="/" component={DashBoard}/>
                           <Route path="/login" component={Login}/>
                           <Route path="/signup" component={SignUp}/>
                           <Route path="/add" component={AddQuestion}/>
