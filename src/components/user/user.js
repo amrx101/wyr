@@ -17,7 +17,7 @@ class User extends Component{
                 <div className='contact-details'>
                     <p>Name: {name}</p>
                     <p>Asked: {questions.length}</p>
-                    <p>Answered: {answers.length}</p> 
+                    <p>Answered: {Object.values(answers).length}</p> 
                 </div>
             </div>
         );
