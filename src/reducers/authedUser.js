@@ -1,6 +1,6 @@
 import { AUTHENTICATE_USER } from '../actions/authedUser'
 
-export default function authenticateUser (state = {}, action) {
+export default function authedUser (state = {}, action) {
     switch(action.type){
         case AUTHENTICATE_USER:
             return action.id

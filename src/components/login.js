@@ -36,9 +36,11 @@ class Login extends Component {
             // TODO: Route to /UserHome
             console.log("There is a user. We need to switch to user view")
             console.log(this.state.authedUser)
-            return (
-                <h3> We have a USER, redirect to home page </h3>
-            ) 
+            // return (
+            //     <h3> We have a USER, redirect to home page </h3>
+                
+            // ) 
+            return <Redirect to="/add"/>
         }
         let us1 = Object.values(this.props.users).map(function(user) {
             return {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Link, Redirect} from 'react-router-dom'
+import {handleAddQuestion} from '../../actions/questions'
 
 
 class AddQuestion extends React.Component {
@@ -24,22 +25,16 @@ class AddQuestion extends React.Component {
   handleSubmit(event) {
     alert('A name was submitted: ' + this.state.name);
     event.preventDefault();
-    // TODO: Dispatch authedUser
-    // Set this.state.newRegistration to True
-    // const {dispatch} = this.props
-    // const {username} = this.state
-    // const {name} = this.state
-    // const {avatarURL} = this.state
-    // console.log("id is ", username)
-    // console.log("name is ", name)
-    // console.log("avatar is", avatarURL)
-    // dispatch(handleAddUser(username, name, avatarURL))
-    // this.setState({newRegistration: true})
+    const {dispatch} = this.props
+    const {option1, option2} = this.state
+    dispatch(handleAddQuestion(option1, option2))
+    this.setState({redirect: true})
   }
 
   render() {
       const {option1, option2, redirect} = this.state
       const isEnabled = option1.length > 0 && option2.length > 0;
+      const {authedUser} = this.props
       if (redirect === true){
           console.log("There is a user. We need to switch to user view")
   
@@ -58,4 +53,10 @@ class AddQuestion extends React.Component {
   }
 }
 
-export default connect()(AddQuestion)
+function mapStateToProps({authedUser}){
+    return{
+        authedUser: authedUser
+    }
+}
+
+export default connect(mapStateToProps)(AddQuestion)
