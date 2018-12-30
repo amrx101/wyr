@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import Login from './login'
+import SignUp from './signup/signup'
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class App extends Component {
                       ? null
                       : <div>
                           <Route path="/login" component={Login}/>
+                          <Route path="/signup" component={SignUp}/>
                           
                       </div>}
               </Fragment>
