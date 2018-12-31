@@ -11,6 +11,7 @@ import AddQuestion from './question/addQues'
 import User from './user/user'
 import Home from './home/dashBoard'
 import LeaderBoard from './home/leaderBoard'
+import Question from './question/viewQues'
 
 class App extends Component {
   componentDidMount() {
@@ -20,8 +21,7 @@ class App extends Component {
   render() {
       return (
           <Router>
-              <Fragment>
-                  
+              <Fragment>  
                   {this.props.wait === true
                       ? null
                       : <div>
@@ -31,7 +31,7 @@ class App extends Component {
                           <Route path="/add" component={AddQuestion}/>
                           <Route path="/user" component={User}/>
                           <Route path="/leaderboard" component={LeaderBoard}/>
-                          
+                          <Route path="/questions/:id" component={Question}/>     
                       </div>}
               </Fragment>
           </Router>
