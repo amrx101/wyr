@@ -21,11 +21,12 @@ class Home extends React.Component {
 	}
 }
 
+
+
 class DashBoard extends React.Component {
     render() {
         console.log("DASHBOARD PROPS: ", this.props)
-        return (
-            
+        return ( 
             <div id="dashboard">
                 <div className="fancy"> Hi! {this.props.user.name} </div>
                 <div className="menu">
@@ -40,21 +41,13 @@ class DashBoard extends React.Component {
                     </Link>
                 </div>
                 <div className="content">
-                    <Route exact path="/" render={(props) => <Display {...this.props} />}/>
+                    <Route exact path="/" render={(props) => <ControlledTabs {...this.props} />}/>
                     <Route exact path="/leaderboard" component={LeaderBoard}/>
                     <Route exact path="/add" component={AddQuestion}/>
                     <Route path="/questions/:id" component={Question}/>
                 </div>
             </div>
         );
-    }
-}
-
-// This is what you really care about
-class Display extends React.Component {
-    render() {
-        console.log("HOME PROPS: ", this.props)
-        return <ControlledTabs {...this.props} />
     }
 }
 
