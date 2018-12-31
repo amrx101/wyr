@@ -9,7 +9,7 @@ import Login from './login'
 import SignUp from './signup/signup'
 import AddQuestion from './question/addQues'
 import User from './user/user'
-import DashBoard from './home/dashBoard'
+import Home from './home/dashBoard'
 import LeaderBoard from './home/leaderBoard'
 
 class App extends Component {
@@ -25,7 +25,7 @@ class App extends Component {
                   {this.props.wait === true
                       ? null
                       : <div>
-                          <Route exact path ="/" component={DashBoard}/>
+                          <Route exact path ="/" component={Home}/>
                           <Route path="/login" component={Login}/>
                           <Route path="/signup" component={SignUp}/>
                           <Route path="/add" component={AddQuestion}/>

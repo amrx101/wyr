@@ -15,9 +15,9 @@ class QuestionView extends Component{
     }
 }
 
-function mapStateToProps({questions, "vthrdm985a262al8qx3do"}){
+function mapStateToProps({questions, id}){
     return {
-        question: questions{"vthrdm985a262al8qx3do"}
+        question: questions{id}
     }
 
 }
