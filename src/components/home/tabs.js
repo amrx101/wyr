@@ -5,7 +5,6 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 
 class ControlledTabs extends React.Component {
-
   render() {
     return (
     <Tabs>

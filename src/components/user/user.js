@@ -20,14 +20,10 @@ class User extends Component{
                 </div>
             </div>
         );
-
     }
-
-
 }
 
 function mapStateToProps({users}, {id}){
-    // TODO: This will be an ID
     console.log("id is ", id)
     return {
         user: users[id],

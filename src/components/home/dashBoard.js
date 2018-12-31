@@ -10,7 +10,7 @@ class Dashboard extends React.Component {
 	render() {
         const {noUser} = this.props
         if (noUser === true){
-            return <Redirect to="/"/>
+            return <Redirect to="/login"/>
         }
 		return (
 			<BrowserRouter>
