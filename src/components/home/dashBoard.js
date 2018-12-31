@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import './dashboard.css';
 import LeaderBoard from '../home/leaderBoard'
 import AddQuestion from '../question/addQues'
+import ControlledTabs from '../home/tabs'
 import {BrowserRouter,NavLink, Route, Link, Redirect} from 'react-router-dom';
 
 class Dashboard extends React.Component {
@@ -48,7 +49,7 @@ class DashBoard extends React.Component {
 // This is what you really care about
 class Home extends React.Component {
     render() {
-        return <h1>Hello there ! You're on the home page</h1>;
+        return <ControlledTabs/>
     }
 }
 

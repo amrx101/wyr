@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Select from 'react-select';
 import {Link, Redirect} from 'react-router-dom'
-import {Label, Media} from 'reactstrap'
 import "./user.css"
 
 
