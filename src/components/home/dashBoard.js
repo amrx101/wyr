@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import './dashboard.css';
 import LeaderBoard from '../home/leaderBoard'
 import AddQuestion from '../question/addQues'
+import Question from '../question/viewQues'
 import ControlledTabs from '../home/tabs'
 import {BrowserRouter,NavLink, Route, Link, Redirect} from 'react-router-dom';
 
@@ -28,20 +29,21 @@ class DashBoard extends React.Component {
             <div id="dashboard">
                 <div className="fancy"> Hi! {this.props.user.name} </div>
                 <div className="menu">
-                    <NavLink exact to="/">
+                    <Link  to="/">
                         DashBoard
-                    </NavLink>
-                    <NavLink exact to="/leaderboard" >
+                    </Link>
+                    <Link  to="/leaderboard" >
                         LeaderBoard
-                    </NavLink>
-                    <NavLink exact to="/add">
+                    </Link>
+                    <Link  to="/add">
                         AddQuestion
-                    </NavLink>
+                    </Link>
                 </div>
                 <div className="content">
                     <Route exact path="/" render={(props) => <Display {...this.props} />}/>
                     <Route exact path="/leaderboard" component={LeaderBoard}/>
                     <Route exact path="/add" component={AddQuestion}/>
+                    <Route path="/questions/:id" component={Question}/>
                 </div>
             </div>
         );
