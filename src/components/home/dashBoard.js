@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Nav, NavItem, TabContent, TabPane} from 'reactstrap'
 import {connect} from 'react-redux'
 import './dashboard.css';
 import LeaderBoard from '../home/leaderBoard'
@@ -8,9 +7,13 @@ import {BrowserRouter,NavLink, Route, Link, Redirect} from 'react-router-dom';
 
 class Dashboard extends React.Component {
 	render() {
+        const {noUser} = this.props
+        if (noUser === true){
+            return <Redirect to="/"/>
+        }
 		return (
 			<BrowserRouter>
-				<DashBoard />
+				<DashBoard {...this.props} />
 			</BrowserRouter>
 		);
 	}
@@ -18,6 +21,7 @@ class Dashboard extends React.Component {
 
 class DashBoard extends React.Component {
     render() {
+        console.log("DASHBOARD: ", this.props)
         return (
             <div id="dashboard">
                 <div className="menu">
@@ -48,11 +52,12 @@ class Home extends React.Component {
     }
 }
 
-// This is what you could care about
-class Automation extends React.Component {
-    render() {
-        return <h1>This is the Automation Panel</h1>;
+function isEmpty(obj) {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key))
+            return false;
     }
+    return true;
 }
 
 
@@ -65,12 +70,15 @@ function mapStateToProps({questions, authedUser, users}) {
         question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)
     )
 
+    let user = users[authedUser]
+
     return {
         notAnsweredQIds: Object.values(notAnsweredQuestions)
             .sort((a, b) => b.timestamp - a.timestamp).map((q) => q.id),
         answeredQIds: Object.values(answeredQuestions)
             .sort((a, b) => b.timestamp - a.timestamp).map((q) => q.id),
         user: users[authedUser],
+        noUser: isEmpty(user)
     }
 }
 

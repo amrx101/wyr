@@ -42,7 +42,7 @@ class AddQuestion extends React.Component {
           // TODO: Redirect to dashboard
           console.log("There is a user. We need to switch to user view")
   
-          return <Redirect to="/login"/>
+          return <Redirect to="/"/>
       }
       return (
           <div className="add_question">
