@@ -37,15 +37,6 @@ body,
   border : 0.5em solid gray;
 
   color: black
-
-  /* Let's make sure we have a square.
-     If it's not a square, we'll get an
-     ellipsis rather than a circle ;) */
-  /*width  : 4em;
-  height : 4em;*/
-
-  /* and let's turn the square into a circle */
-  /*border-radius: 100%;*/
 }
 
 
