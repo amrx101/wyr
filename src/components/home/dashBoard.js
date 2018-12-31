@@ -21,8 +21,6 @@ class Home extends React.Component {
 	}
 }
 
-
-
 class DashBoard extends React.Component {
     render() {
         console.log("DASHBOARD PROPS: ", this.props)

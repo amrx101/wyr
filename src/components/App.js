@@ -28,9 +28,7 @@ class App extends Component {
                           <Route exact path ="/" component={Home}/>
                           <Route path="/login" component={Login}/>
                           <Route path="/signup" component={SignUp}/>
-                          <Route path="/add" component={AddQuestion}/>
-                          <Route path="/leaderboard" component={LeaderBoard}/>
-                          <Route path="/questions/:id" component={Question}/>     
+                            
                       </div>}
               </Fragment>
           </Router>
