@@ -24,7 +24,9 @@ class DashBoard extends React.Component {
     render() {
         console.log("DASHBOARD PROPS: ", this.props)
         return (
+            
             <div id="dashboard">
+                <div className="fancy"> Hi! {this.props.user.name} </div>
                 <div className="menu">
                     <NavLink exact to="/">
                         DashBoard

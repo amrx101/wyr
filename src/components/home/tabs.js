@@ -13,7 +13,6 @@ class ControlledTabs extends React.Component {
             <Tab><h1>Unanswered</h1></Tab>
             <Tab><h1>Answered</h1></Tab>
         </TabList>
-
         <TabPanel> <Home {...this.props}/> </TabPanel>
         <TabPanel> <Home1/> </TabPanel>
     </Tabs>
