@@ -5,9 +5,9 @@ import {Link, Redirect} from 'react-router-dom'
 
 class QuestionView extends Component{
      render() {
-        const {question} = this.props
-        const {id, optionOne, optionTwo} = question
-        return (
+         const {id, question} = this.props
+         const {optionOne, optionTwo} = question
+         return (
             <Link to={`/questions/${id}`}>
                 <span>{optionOne.text} or {optionTwo.text}</span>
             </Link>
@@ -15,11 +15,11 @@ class QuestionView extends Component{
     }
 }
 
-function mapStateToProps({questions, id}){
+function mapStateToProps({questions}, {id}){
     return {
-        question: questions{id}
+        question: questions[id]
     }
 
 }
 
-export default connect()(QuestionView)
+export default connect(mapStateToProps)(QuestionView)

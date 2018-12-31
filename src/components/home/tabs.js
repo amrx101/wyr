@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
+import QuestionView from '../question/listQues'
 
 class ControlledTabs extends React.Component {
   render() {
@@ -28,7 +29,7 @@ class TabContent extends React.Component{
             <div> Questions Are: 
                 <ul>
                     {questions.map((question) => (
-                        <li key={question}>{question}</li>
+                        <li key={question}><QuestionView id={question}/></li>
                         ))
                     }
                 </ul>
