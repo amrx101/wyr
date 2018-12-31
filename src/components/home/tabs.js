@@ -11,10 +11,10 @@ class ControlledTabs extends React.Component {
     <Tabs>
         <TabList>
             <Tab><h1>Unanswered</h1></Tab>
-            <Tab><h1> Answered</h1></Tab>
+            <Tab><h1>Answered</h1></Tab>
         </TabList>
 
-        <TabPanel> <Home/> </TabPanel>
+        <TabPanel> <Home {...this.props}/> </TabPanel>
         <TabPanel> <Home1/> </TabPanel>
     </Tabs>
     );
@@ -23,6 +23,7 @@ class ControlledTabs extends React.Component {
 
 class Home extends React.Component {
     render() {
+        console.log("HOME: ", this.props)
         return <h2> HELLO THERE </h2>
     }
 }
