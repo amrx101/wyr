@@ -22,7 +22,7 @@ class Dashboard extends React.Component {
 
 class DashBoard extends React.Component {
     render() {
-        console.log("DASHBOARD: ", this.props)
+        console.log("DASHBOARD PROPS: ", this.props)
         return (
             <div id="dashboard">
                 <div className="menu">
@@ -37,7 +37,7 @@ class DashBoard extends React.Component {
                     </NavLink>
                 </div>
                 <div className="content">
-                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/" render={(props) => <Home {...this.props} />}/>
                     <Route exact path="/leaderboard" component={LeaderBoard}/>
                     <Route exact path="/add" component={AddQuestion}/>
                 </div>
@@ -49,7 +49,8 @@ class DashBoard extends React.Component {
 // This is what you really care about
 class Home extends React.Component {
     render() {
-        return <ControlledTabs/>
+        console.log("HOME PROPS: ", this.props)
+        return <ControlledTabs {...this.props} />
     }
 }
 
