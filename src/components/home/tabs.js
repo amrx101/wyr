@@ -29,7 +29,7 @@ class TabContent extends React.Component{
             <div> Questions Are: 
                 <ul>
                     {questions.map((question) => (
-                        <li key={question}><QuestionView id={question}/></li>
+                        <li key={question}><QuestionView id={question} type={type}/></li>
                         ))
                     }
                 </ul>
