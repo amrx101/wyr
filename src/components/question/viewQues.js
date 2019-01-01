@@ -9,11 +9,16 @@ class Question extends Component{
         const {question, authedUser} = this.props
         let option1 = question.optionOne.text
         let option2 = question.optionTwo.text
+        let votes1 = question.optionOne.votes
+        let votes2 = question.optionTwo.votes
+        let author = question.author
+        let voted = votes1.includes(authedUser) || votes2.includes(authedUser)
+        console.log("VOTED IS: ", voted)
         return(
             <div>
-                <User id={question.author}/>
-                <div>{option1}</div>
-                <div>{option2}</div>
+                <User id={question.author} className="UserInfo"/>
+                <div className="option1">{option1}</div>
+                <div className="option2">{option2}</div>
             </div>
             
         )
@@ -21,9 +26,8 @@ class Question extends Component{
 }
 
 class AnsweredQuestion extends Component{
-
     render(){
-        const {question} = this
+        const {question} = this.props
         return (
             <div>Happy</div>
         )
