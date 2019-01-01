@@ -6,6 +6,7 @@ import AddQuestion from '../question/addQues'
 import Question from '../question/viewQues'
 import ControlledTabs from '../home/tabs'
 import {BrowserRouter,NavLink, Route, Link, Redirect} from 'react-router-dom';
+import {signOut} from '../../actions/authedUser'
 
 class Home extends React.Component {
 	render() {
@@ -27,12 +28,24 @@ class Home extends React.Component {
 
 class DashBoard extends React.Component {
 
+    state = {
+        goToLogin: false
+    }
+
     handleOnClick = (e) => {
         console.log(e)
         console.log("TODO: LOGOUT and redirect to /login")
+        const {dispatch} = this.props
+        dispatch(signOut())
+        this.setState({goToLogin: true})
     }
     render() {
+        if (this.state.goToLogin === true){
+            return <Redirect to="/login"/>
+        }
+            
         return ( 
+            
             <div id="dashboard" className="sss">
                
                 <div className="menu">
