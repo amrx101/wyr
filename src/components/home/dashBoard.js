@@ -14,9 +14,13 @@ class Home extends React.Component {
             return <Redirect to="/login"/>
         }
 		return (
-			<BrowserRouter>
-				<DashBoard {...this.props} />
-			</BrowserRouter>
+            <div>
+                <div className="fancy"> Hi! {this.props.user.name}</div>
+                <BrowserRouter>
+                    <DashBoard {...this.props} />
+                </BrowserRouter>
+                
+            </div>
 		);
 	}
 }
@@ -29,8 +33,8 @@ class DashBoard extends React.Component {
     }
     render() {
         return ( 
-            <div id="dashboard">
-                <div className="fancy"> Hi! {this.props.user.name} </div>
+            <div id="dashboard" className="sss">
+               
                 <div className="menu">
                     <Link  to="/">
                         DashBoard
@@ -41,7 +45,6 @@ class DashBoard extends React.Component {
                     <Link  to="/add">
                         AddQuestion
                     </Link>
-
                     <Link to="#" onClick={this.handleOnClick}>
                         SignOut
                     </Link>
