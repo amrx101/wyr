@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Redirect, withRouter} from 'react-router-dom'
 import User from '../user/user'
+import './view.css'
 
 
 class Question extends Component{
@@ -17,25 +18,35 @@ class Question extends Component{
         return(
             <div>
                 <User id={question.author} className="UserInfo"/>
-                <div className="option1">{option1}</div>
-                <div className="option2">{option2}</div>
+
+               
             </div>
             
         )
     }
 }
 
-class AnsweredQuestion extends Component{
-    render(){
-        const {question} = this.props
-        return (
-            <div>Happy</div>
-        )
-    }
 
-}
+// function mapStateToProps({questions, users, authedUser}, props){
+//     const {id} = props.match.params
+//     return{
+//       question: questions[id],
+//       totalUsers: Object.keys(users).length,
+//       currentUser: users[authedUser],
+//       questionAuthor: questions[id] ? users[questions[id].author] : null
+//     }
+// }
 
+// export default connect(mapStateToProps)(Question)
 
+// // class AnsweredQuestion extends Component{
+// //     render(){
+// //         const {question} = this.props
+// //         return (
+// //             <div>Happy</div>
+// //         )
+// //     }
+// // }
 
 function mapStateToProps({questions, user, authedUser}, props){
     const {id} = props.match.params
@@ -43,7 +54,8 @@ function mapStateToProps({questions, user, authedUser}, props){
         question: questions[id],
         authedUser: authedUser,
     }
-
 }
+
+// }
 
 export default withRouter(connect(mapStateToProps)(Question))

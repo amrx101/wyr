@@ -1,0 +1,5 @@
+ .rows .row {
+    display: inline-block;
+    border-style: solid;
+    border-spacing: 2em;
+ }
