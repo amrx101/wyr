@@ -22,8 +22,12 @@ class Home extends React.Component {
 }
 
 class DashBoard extends React.Component {
+
+    handleOnClick = (e) => {
+        console.log(e)
+        console.log("TODO: LOGOUT and redirect to /login")
+    }
     render() {
-        console.log("DASHBOARD PROPS: ", this.props)
         return ( 
             <div id="dashboard">
                 <div className="fancy"> Hi! {this.props.user.name} </div>
@@ -36,6 +40,10 @@ class DashBoard extends React.Component {
                     </Link>
                     <Link  to="/add">
                         AddQuestion
+                    </Link>
+
+                    <Link to="#" onClick={this.handleOnClick}>
+                        SignOut
                     </Link>
                 </div>
                 <div className="content">
