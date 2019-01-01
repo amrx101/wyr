@@ -33,8 +33,7 @@ class DashBoard extends React.Component {
     }
 
     handleOnClick = (e) => {
-        console.log(e)
-        console.log("TODO: LOGOUT and redirect to /login")
+        e.preventDefault()
         const {dispatch} = this.props
         dispatch(signOut())
         this.setState({goToLogin: true})
@@ -43,24 +42,13 @@ class DashBoard extends React.Component {
         if (this.state.goToLogin === true){
             return <Redirect to="/login"/>
         }
-            
         return ( 
-            
             <div id="dashboard" className="sss">
-               
                 <div className="menu">
-                    <Link  to="/">
-                        DashBoard
-                    </Link>
-                    <Link  to="/leaderboard" >
-                        LeaderBoard
-                    </Link>
-                    <Link  to="/add">
-                        AddQuestion
-                    </Link>
-                    <Link to="#" onClick={this.handleOnClick}>
-                        SignOut
-                    </Link>
+                    <Link  to="/">DashBoard</Link>
+                    <Link  to="/leaderboard" >LeaderBoard</Link>
+                    <Link  to="/add">AddQuestion</Link>
+                    <Link to="#" onClick={this.handleOnClick}>SignOut</Link>
                 </div>
                 <div className="content">
                     <Route exact path="/" render={(props) => <ControlledTabs {...this.props} />}/>
