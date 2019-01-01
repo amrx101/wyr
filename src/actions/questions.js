@@ -34,3 +34,18 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
             })
     }
 }
+
+export function handleAnswerQuestion(qid, answer) {
+    return (dispatch, getState) => {
+        const {authedUser} = getState()
+        console.log("ACTION AUTHEDUSER: ", authedUser)
+        console.log("QID: ", qid)
+        console.log("ANSWER:", answer)
+        dispatch(showLoading())
+        return saveQuestionAnswer(authedUser, qid, answer)
+            .then(() => {
+                dispatch(handleInitialData())
+                dispatch(hideLoading())
+            })
+    }
+}
