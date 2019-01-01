@@ -8,19 +8,15 @@ import {handleAnswerQuestion} from '../../actions/questions'
 
 class Question extends Component{
     handleVote = (vote) => {
-        //TODO: Make an api request to handle vote
-        // change props
-        // re=render
         const{qid, dispatch} = this.props
-        console.log(vote, qid)
         dispatch(handleAnswerQuestion(qid, vote))
     }
 
-    state = {
-        voted: false
-    }
     render(){
-       const{author} = this.props
+       const{author, noUser} = this.props
+       if (noUser=== true){
+           return <Redirect to="/login"/>
+       }
         return(
             <div>
                 <User id={author} className="UserInfo"/>
@@ -42,10 +38,8 @@ class QuestionInfo extends Component{
     }
 
     handleOnClick = (e) =>{
-        console.log("ONCLIKC")
         const{onClick} = this.props
-        let vote = this.determineOption(e.target.textContent)
-        onClick(vote)
+        onClick(this.determineOption(e.target.textContent))
     }
 
     renderAnswered = () =>{
@@ -97,6 +91,14 @@ class QuestionInfo extends Component{
     }
 }
 
+function isEmpty(obj) {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
 
 function mapStateToProps({questions, user, authedUser}, props){
     const {id} = props.match.params
@@ -118,6 +120,7 @@ function mapStateToProps({questions, user, authedUser}, props){
         votes2: votes2,
         answered: answered,
         qid: id,
+        noUser: isEmpty(authedUser),
     }
 }
 
