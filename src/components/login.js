@@ -41,13 +41,17 @@ class Login extends Component {
             }
         })
         let yy = us1.map((user) => ({id: user.id, name: user.name}))
+        const options = yy.map(option =>
+            <option key={option.id} value={option.id}>{option.name}</option>
+        )
         return (
             <div className="login_page">
                 <h2> Existing User. Please LogIn. </h2>
                 <div className="search_categories">
                     <div className="select">
                         <select className="selectItem" onChange={this.onChange}>
-                            {yy.map((user) => <option key={user.id} value={user.id}>{user.name}</option>)}
+                            <option value="">Select option</option>
+                                {options}
                         </select>
                     </div>
                 </div>
