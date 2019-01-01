@@ -7,6 +7,18 @@ import './view.css'
 
 class Question extends Component{
     render(){
+        const {question, authedUser} = this.props  
+        return(
+            <div>
+                <User id={question.author} className="UserInfo"/>
+                <QuestionInfo {...this.props}/>
+            </div>      
+        )
+    }
+}
+
+class QuestionInfo extends Component{
+    render() {
         const {question, authedUser} = this.props
         let option1 = question.optionOne.text
         let option2 = question.optionTwo.text
@@ -14,39 +26,24 @@ class Question extends Component{
         let votes2 = question.optionTwo.votes
         let author = question.author
         let voted = votes1.includes(authedUser) || votes2.includes(authedUser)
-        console.log("VOTED IS: ", voted)
         return(
             <div>
-                <User id={question.author} className="UserInfo"/>
-
-               
+                <h2>Question Info</h2>
+                    <div className="row">
+                        <div className="column" >
+                            <h2>{option1}</h2>
+                            <p>Votes={votes1.length}</p>
+                        </div>
+                        <div className="column">
+                            <h2>{option2}</h2>
+                            <p>Votes={votes2.length}</p>
+                        </div>
+                    </div>
             </div>
-            
         )
     }
 }
 
-
-// function mapStateToProps({questions, users, authedUser}, props){
-//     const {id} = props.match.params
-//     return{
-//       question: questions[id],
-//       totalUsers: Object.keys(users).length,
-//       currentUser: users[authedUser],
-//       questionAuthor: questions[id] ? users[questions[id].author] : null
-//     }
-// }
-
-// export default connect(mapStateToProps)(Question)
-
-// // class AnsweredQuestion extends Component{
-// //     render(){
-// //         const {question} = this.props
-// //         return (
-// //             <div>Happy</div>
-// //         )
-// //     }
-// // }
 
 function mapStateToProps({questions, user, authedUser}, props){
     const {id} = props.match.params
@@ -56,6 +53,5 @@ function mapStateToProps({questions, user, authedUser}, props){
     }
 }
 
-// }
 
 export default withRouter(connect(mapStateToProps)(Question))
