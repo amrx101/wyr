@@ -8,7 +8,6 @@ import "./user.css"
 class User extends Component{
 
     render(){
-        console.log("INSIDE USER", this.props.user)
         const {name, avatarURL, answers, questions} = this.props.user
         return(
             <div>
@@ -24,7 +23,6 @@ class User extends Component{
 }
 
 function mapStateToProps({users}, {id}){
-    console.log("id is ", id)
     return {
         user: users[id],
     }
