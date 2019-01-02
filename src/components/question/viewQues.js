@@ -13,10 +13,14 @@ class Question extends Component{
     }
 
     render(){
-       const{author, noUser} = this.props
-       if (noUser=== true){
-           return <Redirect to="/login"/>
-       }
+        const{missing} = this.props
+        if (missing === true){
+            return <Redirect to="/login"/>
+        }
+        const{author, noUser} = this.props
+        if (noUser=== true){
+            return <Redirect to="/login"/>
+        }
         return(
             
             <div>
@@ -104,6 +108,11 @@ function isEmpty(obj) {
 function mapStateToProps({questions, user, authedUser}, props){
     const {id} = props.match.params
     let question = questions[id]
+    if(question === undefined){
+        return {
+            missing: true,
+        }
+    }
     let option1 = question.optionOne
     let option2 = question.optionTwo
     let author = question.author
@@ -122,6 +131,7 @@ function mapStateToProps({questions, user, authedUser}, props){
         answered: answered,
         qid: id,
         noUser: isEmpty(authedUser),
+        missing: false,
     }
 }
 
