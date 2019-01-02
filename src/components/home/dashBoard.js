@@ -5,10 +5,10 @@ import LeaderBoard from '../home/leaderBoard'
 import AddQuestion from '../question/addQues'
 import Question from '../question/viewQues'
 import ControlledTabs from '../home/tabs'
-import {BrowserRouter,NavLink, Route, Link, Redirect} from 'react-router-dom';
+import {BrowserRouter, Route, Link, Redirect} from 'react-router-dom';
 import {signOut} from '../../actions/authedUser'
 
-class Home extends React.Component {
+class Home extends Component {
 	render() {
         const {noUser} = this.props
         if (noUser === true){

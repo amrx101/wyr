@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Select from 'react-select';
-import {Link, Redirect} from 'react-router-dom'
 import "./user.css"
 
 
@@ -11,7 +9,7 @@ class User extends Component{
         const {name, avatarURL, answers, questions} = this.props.user
         return(
             <div>
-                <img src={avatarURL} className="circular-image" />
+                <img src={avatarURL} className="circular-image" alt="User Avatar"/>
                 <div className='contact-details'>
                     <p>Name: {name}</p>
                     <p>Asked: {questions.length}</p>

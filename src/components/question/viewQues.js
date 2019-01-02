@@ -34,7 +34,7 @@ class Question extends Component{
 class QuestionInfo extends Component{
 
     determineOption = (textString) =>{
-        const{option1, option2} = this.props
+        const{option1} = this.props
         if (option1.text === textString) {
             return "optionOne"
         } else{
@@ -48,7 +48,7 @@ class QuestionInfo extends Component{
     }
 
     renderAnswered = () =>{
-         const {question, authedUser, option1, option2, votes1, votes2, answered} = this.props
+         const {option1, option2, votes1, votes2} = this.props
          return(
             <div>
                 <h2>Question Options</h2>
@@ -67,7 +67,7 @@ class QuestionInfo extends Component{
     }
 
     renderUnaswered = () => {
-        const {question, authedUser, option1, option2, votes1, votes2, answered} = this.props
+        const {option1, option2} = this.props
         return (
             <div>
                 <h2>QuestionInfo</h2>

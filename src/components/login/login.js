@@ -29,8 +29,6 @@ class Login extends Component {
     }
 
     render () {
-        
-        const {authedUser} = this.state
         const {loginDone} = this.state
         if(loginDone){
             return <Redirect to="/"/>

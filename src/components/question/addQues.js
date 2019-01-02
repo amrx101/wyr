@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Link, Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import {handleAddQuestion} from '../../actions/questions'
 
 
-class AddQuestion extends React.Component {
+class AddQuestion extends Component {
   constructor(props) {
     super(props);
     this.state = {option1: '', option2: '', redirect: false};
@@ -34,7 +34,7 @@ class AddQuestion extends React.Component {
   render() {
       const {option1, option2, redirect} = this.state
       const isEnabled = option1.length > 0 && option2.length > 0;
-      const {authedUser, noUser} = this.props
+      const {noUser} = this.props
       if (noUser === true){
           return <Redirect to="/login"/>
       }

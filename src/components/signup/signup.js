@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {handleAddUser} from '../../actions/users'
-import {Link, Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 
-class SignUp extends React.Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {name: '', username: '', avatarURL: '', newRegistration: false};
@@ -36,9 +36,6 @@ class SignUp extends React.Component {
     const {username} = this.state
     const {name} = this.state
     const {avatarURL} = this.state
-    console.log("id is ", username)
-    console.log("name is ", name)
-    console.log("avatar is", avatarURL)
     dispatch(handleAddUser(username, name, avatarURL))
     this.setState({newRegistration: true})
   }
