@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-//import LoadingBar from 'react-redux-loading'
+import LoadingBar from 'react-redux-loading'
 import logo from './logo.svg';
 import './App.css';
 import Login from './login/login'
@@ -22,6 +22,7 @@ class App extends Component {
       return (
           <Router>
               <Fragment>  
+                  <LoadingBar/>
                   {this.props.wait === true
                       ? null
                       : <div>
@@ -47,7 +48,7 @@ function isEmpty(obj) {
 
 function mapStateToProps({users, questions}) {
   return {
-    wait : isEmpty(users)
+    wait : isEmpty(users) || isEmpty(questions)
   }
 }
 
