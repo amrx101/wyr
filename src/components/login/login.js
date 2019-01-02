@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { authenticateUser}  from '../actions/authedUser'
+import { authenticateUser}  from '../../actions/authedUser'
 import './login.css'
 import {Link, Redirect} from 'react-router-dom'
 
