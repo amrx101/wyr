@@ -16,7 +16,7 @@ class Home extends React.Component {
         }
 		return (
             <div>
-                <div className="fancy"> Hi! {this.props.user.name}</div>
+                <div className="fancy"> Hi!  {this.props.user.name} Welcome to Would You Rather!</div>
                 <BrowserRouter>
                     <DashBoard {...this.props} />
                 </BrowserRouter>
@@ -44,6 +44,7 @@ class DashBoard extends React.Component {
         }
         return ( 
             <div id="dashboard" className="sss">
+                
                 <div className="menu">
                     <Link  to="/">DashBoard</Link>
                     <Link  to="/leaderboard" >LeaderBoard</Link>

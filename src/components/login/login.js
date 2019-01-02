@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { authenticateUser}  from '../../actions/authedUser'
 import './login.css'
 import {Link, Redirect} from 'react-router-dom'
+import LoadingBar from 'react-redux-loading'
 
 class Login extends Component {
     state = {
@@ -46,6 +47,7 @@ class Login extends Component {
         )
         return (
             <div className="login_page">
+                <LoadingBar/>
                 <h2> Existing User. Please LogIn. </h2>
                 <div className="search_categories">
                     <div className="select">

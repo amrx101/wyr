@@ -18,6 +18,7 @@ class Question extends Component{
            return <Redirect to="/login"/>
        }
         return(
+            
             <div>
                 <User id={author} className="UserInfo"/>
                 <QuestionInfo {...this.props} onClick={this.handleVote}/>
@@ -46,7 +47,7 @@ class QuestionInfo extends Component{
          const {question, authedUser, option1, option2, votes1, votes2, answered} = this.props
          return(
             <div>
-                <h2>Question Info</h2>
+                <h2>Question Options</h2>
                     <div className="row">
                         <div className="column" >
                             <h2>{option1.text}</h2>
