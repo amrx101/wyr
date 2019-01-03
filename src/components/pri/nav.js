@@ -9,13 +9,12 @@ class Nav extends Component {
         redirectLogin: false
     }
 
-
-    handleSignout = (e) => {
+    handleOnClick = (e) => {
         e.preventDefault()
-        this.props.dispatch(signOut())
-        this.setState(() => ({
-            redirectLogin: true
-        }))
+        const {dispatch} = this.props
+
+        dispatch(signOut())
+        this.setState({redirectLogin: true})
     }
 
     render() {
@@ -26,40 +25,24 @@ class Nav extends Component {
             return (<Redirect to="/login"/>)
         }
 
+        var styleMenu = {
+            width: "20%",
+            height: "40px"
+        }
+        var styleLinks  = {
+            margin: "100px",
+            "font-size": "x-large",
+        }
         return(
-             <div className="menu">
-                    <Link  to="/">DashBoard</Link>
-                    <Link  to="/leaderboard" >LeaderBoard</Link>
-                    <Link  to="/add">AddQuestion</Link>
-                    <Link to="#" onClick={this.handleOnClick}>SignOut</Link>
+            <div className="dashboard"style={styleMenu}>
+                <div className="menu" >
+                        <Link  to="/" className="dsb" style={styleLinks} >DashBoard</Link>
+                        <Link  to="/leaderboard" style={styleLinks}>LeaderBoard</Link>
+                        <Link  to="/add" style={styleLinks}>AddQuestion</Link>
+                        <Link to="#" onClick={this.handleOnClick} style={styleLinks}>SignOut</Link>
+                </div>
             </div>
         )
-
-        // return (
-        //     <Fragment>
-        //         <Navbar color="light" light expand="md">
-        //             <NavbarBrand>{user.name}, Would You Rather...</NavbarBrand>
-        //             <BoostrapNav>
-        //                 <NavItem>
-        //                     <BootstrapNavLink tag={NavLink} exact to="/">Dashboard</BootstrapNavLink>
-        //                 </NavItem>
-        //                 <NavItem>
-        //                     <BootstrapNavLink tag={NavLink}
-        //                                       to="/leaderboard">Leaderboard</BootstrapNavLink>
-        //                 </NavItem>
-        //                 <NavItem>
-        //                     <BootstrapNavLink tag={NavLink} to="/add">Add
-        //                         Question</BootstrapNavLink>
-        //                 </NavItem>
-        //                 <NavItem>
-        //                     <BootstrapNavLink tag={NavLink} to="#"
-        //                                       onClick={this.handleSignout}>Signout</BootstrapNavLink>
-        //                 </NavItem>
-        //             </BoostrapNav>
-        //         </Navbar>
-        //         <LoadingBar/>
-        //     </Fragment>
-        // )
     }
 }
 
