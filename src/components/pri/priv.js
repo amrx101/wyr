@@ -34,4 +34,4 @@ function mapStateToProps({authedUser}) {
     }
 }
 
-export default connect(mapStateToProps, null, null, {pure: false,})(PrivateRoute)
+export default connect(mapStateToProps, null, null, {pure: false})(PrivateRoute)

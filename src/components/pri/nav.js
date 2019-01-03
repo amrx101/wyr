@@ -29,7 +29,7 @@ class Nav extends Component {
         }
         var styleLinks  = {
             margin: "100px",
-            "font-size": "x-large",
+            fontSize: "x-large",
         }
         return(
             <Fragment>
