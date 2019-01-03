@@ -62,12 +62,12 @@ class QuestionInfo extends Component{
                         <div className="column" >
                             <h2>{option1.text}</h2>
                             <p>Total Votes={votes1.length}</p>
-                            <p>Percentatage={this.calculatePercentage(votes1)}</p>
+                            <p>% of Users voted={this.calculatePercentage(votes1)}</p>
                         </div>
                         <div className="column">
                             <h2>{option2.text}</h2>
                             <p>Total Votes={votes2.length}</p>
-                            <p>Percentatage={this.calculatePercentage(votes2)}</p>
+                            <p>% of Users voted={this.calculatePercentage(votes2)}</p>
                         </div>
                     </div>
                 </div>
