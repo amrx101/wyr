@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Redirect, withRouter, Link} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import User from '../user/user'
 import './view.css'
 import {handleAnswerQuestion} from '../../actions/questions'
@@ -15,12 +15,11 @@ class Question extends Component{
     render(){
         const{missing} = this.props
         if (missing === true){
-            return <Redirect to="/login"/>
+            return (
+                <h1> 404 Question Not Found in records. </h1>
+            )
         }
-        const{author, noUser} = this.props
-        if (noUser=== true){
-            return <Redirect to="/login"/>
-        }
+        const{author} = this.props
         return(
             
             <div>

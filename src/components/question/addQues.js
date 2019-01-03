@@ -33,10 +33,6 @@ class AddQuestion extends Component {
   render() {
       const {option1, option2, redirect} = this.state
       const isEnabled = option1.length > 0 && option2.length > 0;
-      const {noUser} = this.props
-      if (noUser === true){
-          return <Redirect to="/login"/>
-      }
       if (redirect === true){
           // TODO: Redirect to dashboard
           console.log("There is a user. We need to switch to user view")
