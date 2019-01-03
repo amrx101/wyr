@@ -23,7 +23,6 @@ class AddQuestion extends Component {
 
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.name);
     event.preventDefault();
     const {dispatch} = this.props
     const {option1, option2} = this.state
