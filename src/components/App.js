@@ -7,9 +7,10 @@ import './App.css';
 import Login from './login/login'
 import SignUp from './signup/signup'
 import AddQuestion from './question/addQues'
-import Home from './home/dashBoard'
+import ControlledTabs from './home/tabs'
 import LeaderBoard from './home/leaderBoard'
 import Question from './question/viewQues'
+import PrivateRoute from './pri/priv'
 
 class App extends Component {
   componentDidMount() {
@@ -24,12 +25,13 @@ class App extends Component {
                   {this.props.wait === true
                       ? null
                       : <div>
-                          <Route exact path ="/" component={Home}/>
+                          
                           <Route path="/login" component={Login}/>
                           <Route path="/signup" component={SignUp}/>
-                          <Route exact path="/leaderboard" component={LeaderBoard}/>
-                          <Route exact path="/add" component={AddQuestion}/>
-                          <Route path="/questions/:id" component={Question}/>
+                          <PrivateRoute exact path ="/" component={ControlledTabs}/>
+                          <PrivateRoute exact path="/leaderboard" component={LeaderBoard}/>
+                          <PrivateRoute exact path="/add" component={AddQuestion}/>
+                          <PrivateRoute path="/questions/:id" component={Question}/>
                             
                       </div>}
               </Fragment>

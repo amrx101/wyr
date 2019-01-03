@@ -30,8 +30,10 @@ class Login extends Component {
 
     render () {
         const {loginDone} = this.state
+        const {from} = this.props.location.state || {from: {pathname: '/'}}
+
         if(loginDone){
-            return <Redirect to="/"/>
+            return <Redirect to={from}/>
         }
         let us1 = Object.values(this.props.users).map(function(user) {
             return {
