@@ -54,17 +54,35 @@ class QuestionInfo extends Component{
     }
 
     renderAnswered = () =>{
-         const {option1, option2, votes1, votes2} = this.props
+         const {option1, option2, votes1, votes2, authedUser} = this.props
+         let choice = "option1"
+         if(votes2.includes(authedUser)){
+             choice = "option2"
+         }
+         let color1 = "black"
+         let color2 = "blue"
+
+         if (choice === "option1"){
+             color2 = "black"
+             color1 = "blue"
+         }
+         var style1 = {
+             color: color1
+         }
+         var style2 = {
+             color: color2
+         }
+
          return(
             <div>
                 <h2>Question Options</h2>
                     <div className="row">
-                        <div className="column" >
+                        <div className="column" style={style1} >
                             <h2>{option1.text}</h2>
                             <p>Total Votes={votes1.length}</p>
                             <p>% of Users voted={this.calculatePercentage(votes1)}</p>
                         </div>
-                        <div className="column">
+                        <div className="column" style={style2}>
                             <h2>{option2.text}</h2>
                             <p>Total Votes={votes2.length}</p>
                             <p>% of Users voted={this.calculatePercentage(votes2)}</p>
