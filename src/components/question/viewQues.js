@@ -47,6 +47,12 @@ class QuestionInfo extends Component{
         onClick(this.determineOption(e.target.textContent))
     }
 
+    calculatePercentage = (votes) => {
+        const {numUsers} = this.props
+        let percentage = (votes.length/numUsers) * 100
+        return (parseFloat(percentage).toPrecision(4));
+    }
+
     renderAnswered = () =>{
          const {option1, option2, votes1, votes2} = this.props
          return(
@@ -55,11 +61,13 @@ class QuestionInfo extends Component{
                     <div className="row">
                         <div className="column" >
                             <h2>{option1.text}</h2>
-                            <p>Votes={votes1.length}</p>
+                            <p>Total Votes={votes1.length}</p>
+                            <p>Percentatage={this.calculatePercentage(votes1)}</p>
                         </div>
                         <div className="column">
                             <h2>{option2.text}</h2>
-                            <p>Votes={votes2.length}</p>
+                            <p>Total Votes={votes2.length}</p>
+                            <p>Percentatage={this.calculatePercentage(votes2)}</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +113,7 @@ function isEmpty(obj) {
 }
 
 
-function mapStateToProps({questions, user, authedUser}, props){
+function mapStateToProps({questions, users, authedUser}, props){
     const {id} = props.match.params
     let question = questions[id]
     if(question === undefined){
@@ -119,6 +127,7 @@ function mapStateToProps({questions, user, authedUser}, props){
     let votes1 = option1.votes
     let votes2 = option2.votes
     let answered = votes1.includes(authedUser) || votes2.includes(authedUser)
+    let numUsers = Object.keys(users).length
 
     return{
         question: questions[id],
@@ -132,6 +141,7 @@ function mapStateToProps({questions, user, authedUser}, props){
         qid: id,
         noUser: isEmpty(authedUser),
         missing: false,
+        numUsers: numUsers,
     }
 }
 
