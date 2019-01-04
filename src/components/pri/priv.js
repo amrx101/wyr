@@ -6,9 +6,7 @@ import Nav from './nav'
 
 const PrivateRoute = ({component: Component, isAuthenticated, ...rest}) => (
     <Route {...rest} render={(props) => {
-        return (
-            isAuthenticated
-                ?
+        return (isAuthenticated?
                 <Fragment>
                     <Nav/>
                         <Component {...props}/>

@@ -28,10 +28,7 @@ class SignUp extends Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.name);
     event.preventDefault();
-    // TODO: Dispatch authedUser
-    // Set this.state.newRegistration to True
     const {dispatch} = this.props
     const {username} = this.state
     const {name} = this.state
